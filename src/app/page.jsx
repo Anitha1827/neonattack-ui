@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
   let router = useRouter();
-  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedColor, setSelectedColor] = useState("White");
   const [inputText, setInputText] = useState("");
   const [price, setPrice] = useState("");
   const [textfont, setTextFont] = useState("Arial");
