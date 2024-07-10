@@ -1,13 +1,31 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import AddPhone from "../container/AddPhone";
+import { tailwindfontstyle } from "../../../service";
+import { useRouter } from "next/navigation";
 
 const AddToCart = () => {
   const [data, setData] = useState([]);
+  const[totalprice, setTotalPrice] = useState("");
+  const[totalquantity, setTotalquantity] = useState("");
+
   //modal
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
+  let router = useRouter()
 
+  useEffect(() => {
+    if(data){
+      let quantityCount = 0;
+      let totalPrice = 0;
+      data.map((val) => {
+        quantityCount += val.quantity 
+        totalPrice += val.price * val.quantity
+      });
+      setTotalPrice(totalPrice);
+      setTotalquantity(quantityCount)
+    }
+  },[data])
   useEffect(() => {
     let cart = JSON.parse(
       typeof localStorage !== "undefined" && localStorage.getItem("cart")
@@ -16,7 +34,22 @@ const AddToCart = () => {
     console.log("line6", cart);
   }, []);
 
-  console.log("line15", data);
+  const handlecontinue = () => {
+    router.push("/")
+  }
+  const decreament = (idx) => {
+    let temp = [...data]
+    if(temp[idx]["quantity"] >1){
+      temp[idx]["quantity"] = temp[idx]["quantity"] - 1
+      setData([...temp])
+    }
+
+  }
+  const increament = (idx) => {
+    let temp = [...data]
+    temp[idx]["quantity"] = temp[idx]["quantity"] + 1
+    setData([...temp])
+  }
 
   return (
     <>
@@ -27,9 +60,9 @@ const AddToCart = () => {
         >
           Your cart
         </h1>
-        <a href="" className="text-xl ">
+        <button onClick={()=>handlecontinue()} className="text-xl ">
           Continue shopping
-        </a>
+        </button>
       </div>
       <div class="flex flex-col ">
         <table>
@@ -58,7 +91,17 @@ const AddToCart = () => {
                       className="w-[200px]"
                     />
                     <p className="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-50">
-                    {val.text}
+                    <div
+                  id="textOverlay"
+                  className={`font-bold text-center flex flex-row ${
+                    val.font ? tailwindfontstyle[val.font] : ""
+                  }`}
+                  style={{
+                    fontFamily: val.font,
+                    textShadow: `0 0 10px ${val.color}, 0 0 20px ${val.color}, 0 0 30px ${val.color}`,
+                  }}>
+                    <span>{val.text}</span>
+                </div>
                     </p>
                   </div>
                   <div className="p-3">
@@ -89,17 +132,28 @@ const AddToCart = () => {
                 </div>
               </td>
               <td>₹ {val.price}</td>
-              <td>1</td>
-              <td>₹ {val.price}</td>
+              <td>
+                <div>
+                  <button onClick={()=>decreament(idx)}> - </button>
+                  <span> {val.quantity} </span>
+                  <button onClick={()=>increament(idx)}>+</button>
+                </div>
+              </td>
+              <td>₹ {val.price * val.quantity}</td>
             </tr>
               </>
             ))}
             
           </tbody>
         </table>
+        <div className="flex flex-row flex-wrap justify-end">
         <h1 className="text-right font-bold p-3">
-          Subtoal <span>₹ {data.price}</span>
+          Total Quantity <span>₹ {totalquantity}</span>
         </h1>
+        <h1 className="text-right font-bold p-3">
+          Subtoal <span>₹ {totalprice}</span>
+        </h1>
+        </div>
         <div class="flex justify-end px-4 py-2">
           <button
             onClick={handleOpen}

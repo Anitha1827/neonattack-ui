@@ -3,9 +3,11 @@ import Image from "next/image";
 import Textarea from "@mui/joy/Textarea";
 import { useEffect, useState } from "react";
 import { backgroundColor, colors, fontSize, fontStyles, icons, tailwindfontstyle } from "../../service";
+import { useRouter } from "next/navigation";
 
 
 export default function Home() {
+  let router = useRouter();
   const [selectedColor, setSelectedColor] = useState("");
   const [inputText, setInputText] = useState("");
   const [price, setPrice] = useState("");
@@ -27,8 +29,8 @@ export default function Home() {
 
   let Medium = 600;
   let Large = 1300;
-  const [Waterproof, setWaterProof] = useState("");
-  const [Wireless, setWireless] = useState("");
+  const [Waterproof, setWaterProof] = useState("No");
+  const [Wireless, setWireless] = useState("No");
   useEffect(() => {
     let totalprice = 0;
     for (let i = 0; i < inputText.length; i++) {
@@ -78,7 +80,10 @@ export default function Home() {
 
   //when clicking button data need to store in local storage
   const handleSubmit = () => {
-    console.log("submit");
+    if(inputText.length === 0 ){
+      alert("please enter text");
+      return null;
+    }
     let data = {
       text: inputText,
       size: fontsize,
@@ -87,11 +92,13 @@ export default function Home() {
       waterproof: Waterproof,
       wireless: Wireless,
       price: price,
+      quantity: 1,
     };
     let cart = localStorage.getItem("cart")
     cart ? cart = JSON.parse(cart) : cart= [];
     cart.push(data)
     localStorage.setItem("cart", JSON.stringify(cart));
+    router.push("/addtocart");
   };
   return (
     <>
@@ -126,7 +133,7 @@ export default function Home() {
               <div className="absolute top-0 left-[20%] text-6xl h-full flex items-center justify-center content-center pointer-events-none">
                 <div
                   id="textOverlay"
-                  className={`font-bold text-center flex flex-row ${
+                  className={`font-bold text-white text-center flex flex-row ${
                     textfont ? tailwindfontstyle[textfont] : ""
                   }`}
                   style={{
