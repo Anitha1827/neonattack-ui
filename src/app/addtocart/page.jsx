@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import AddPhone from "../container/AddPhone";
 import { tailwindfontstyle } from "../../../service";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const AddToCart = () => {
   const [data, setData] = useState([]);
@@ -91,10 +92,12 @@ const AddToCart = () => {
               <td class="px-4 py-2 text-left">
                 <div className="flex flex-row p-3">
                   <div className="relative w-[200px]">
-                    <img
+                    <Image
                       src="https://ekbotefurniture.com/wp-content/uploads/2023/11/Sofa-Pink-FV.jpg"
                       alt="product"
-                      className="w-[200px]"
+                      layout="full"
+                      objectFit="cover"
+                      className="rounded"
                     />
                     <p className="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-50">
                     <div
