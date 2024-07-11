@@ -76,16 +76,16 @@ const colors = [
 ];
 
 const backgroundColor = {
-  red: "bg-red-500",
-  blue: "bg-blue-500",
-  green: "bg-green-500",
-  yellow: "bg-yellow-500",
-  purple: "bg-purple-500",
-  pink: "bg-pink-500",
-  orange: "bg-orange-500",
-  teal: "bg-teal-500",
-  indigo: "bg-indigo-500",
-  gray: "bg-gray-500",
+  red: "rgb(239, 68, 68)", // #ef4444
+  blue: "rgb(59, 130, 246)", // #3b82f6
+  green: "rgb(16, 185, 129)", // #10b981
+  yellow: "rgb(245, 158, 11)", // #f59e0b
+  purple: "rgb(139, 92, 246)", // #8b5cf6
+  pink: "rgb(236, 72, 153)", // #ec4899
+  orange: "rgb(249, 115, 22)", // #f97316
+  teal: "rgb(20, 184, 166)", // #14b8a6
+  indigo: "rgb(99, 102, 241)", // #6366f1
+  gray: "rgb(107, 114, 128)", // #6b7280
 };
 
 const fontSize = ["Small", "Medium", "Large"];

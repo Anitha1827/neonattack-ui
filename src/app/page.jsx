@@ -107,15 +107,15 @@ export default function Home() {
       <div className="relative">
         <div className="darkhead ">
           <div className="darksubhead">
-            <img src="https://cdn.shopify.com/s/files/1/0460/2753/8595/files/Group_2688.svg" />{" "}
+            <img alt="" src="https://cdn.shopify.com/s/files/1/0460/2753/8595/files/Group_2688.svg" />
             2 Year Warranty
           </div>
           <div className="darksubhead">
-            <img src="https://cdn.shopify.com/s/files/1/0460/2753/8595/files/Group_2690.svg" />
+            <img alt="" src="https://cdn.shopify.com/s/files/1/0460/2753/8595/files/Group_2690.svg" />
             12000+ Happy Customers
           </div>
           <div className="darksubheadlast">
-            <img src="https://cdn.shopify.com/s/files/1/0460/2753/8595/files/Group_2689.svg" />
+            <img alt="" src="https://cdn.shopify.com/s/files/1/0460/2753/8595/files/Group_2689.svg" />
             100% Timely Delivery
           </div>
         </div>
@@ -124,7 +124,7 @@ export default function Home() {
         <div class="flex flex-col sm:flex-row md:flex-row gap-4 pt-6 bg-opacity-30 bg-black relative">
           {activeTab === "Text" ? (
             <>
-              <img
+              <img 
                 src="https://d1no4rdxmwcuog.cloudfront.net/files/Ka1_B1NeWpfltqebVYU9S.webp"
                 alt="Neon Image"
                 className="w-[100%] md:w-[67%]"
@@ -320,14 +320,12 @@ export default function Home() {
                 <div className="flex space-x-4">
                   {colors.map((color, index) => (
                     <div
-                      key={index}
-                      className={`${
-                        backgroundColor[color]
-                      } w-10 h-10 rounded-full cursor-pointer ${
-                        selectedColor === color ? "ring-4 ring-gray-300" : ""
-                      }`}
-                      onClick={() => handleColorClick(color)}
-                    />
+                    key={index}
+                    className={`w-10 h-10 rounded-full cursor-pointer ${selectedColor === color ? "ring-4 ring-gray-300" : ""}`}
+                    style={{ backgroundColor:backgroundColor[color]}}
+                    onClick={() => handleColorClick(color)}
+                  >
+                  </div>
                   ))}
                 </div>
                 {/* price */}
