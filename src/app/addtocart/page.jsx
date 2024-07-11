@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import AddPhone from "../container/AddPhone";
 import { tailwindfontstyle } from "../../../service";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -174,7 +173,6 @@ const AddToCart = () => {
             Check Out
           </button>
         </div> */}
-        <AddPhone open={open} setOpen={setOpen} data={data} />
       </div>
     </>
   );
