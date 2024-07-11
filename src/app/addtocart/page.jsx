@@ -154,14 +154,14 @@ const AddToCart = () => {
           Subtoal <span>₹ {totalprice}</span>
         </h1>
         </div>
-        <div class="flex justify-end px-4 py-2">
+        {/* <div class="flex justify-end px-4 py-2">
           <button
             onClick={handleOpen}
             class="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-green-500"
           >
             Check Out
           </button>
-        </div>
+        </div> */}
         <AddPhone open={open} setOpen={setOpen} data={data} />
       </div>
     </>
