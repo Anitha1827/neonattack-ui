@@ -4,6 +4,7 @@ import AddPhone from "../container/AddPhone";
 import { tailwindfontstyle } from "../../../service";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import img from "@/app/sofa.jpeg"
 
 const AddToCart = () => {
   const [data, setData] = useState([]);
@@ -93,11 +94,13 @@ const AddToCart = () => {
                 <div className="flex flex-row p-3">
                   <div className="relative w-[200px]">
                     <Image
-                      src="https://ekbotefurniture.com/wp-content/uploads/2023/11/Sofa-Pink-FV.jpg"
+                      src={img}
                       alt="product"
                       layout="full"
                       objectFit="cover"
-                      className="rounded"
+                      className="rounded w-[100%]"
+                      width={"100%"}
+                      height={100}
                     />
                     <p className="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-50">
                     <div
