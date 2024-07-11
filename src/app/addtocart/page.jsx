@@ -50,6 +50,12 @@ const AddToCart = () => {
     temp[idx]["quantity"] = temp[idx]["quantity"] + 1
     setData([...temp])
   }
+  const handleRemove = (idx) => {
+    let temp = [...data];
+    temp.splice(idx, 1);
+    setData([...temp]);
+    localStorage.setItem("cart", JSON.stringify(temp));
+  };
 
   return (
     <>
@@ -127,7 +133,7 @@ const AddToCart = () => {
                     <p>
                       wireless: <span className="ml-2">{val.wireless}</span>
                     </p>
-                    <a href="">Remove</a>
+                    <button onClick={()=>handleRemove(idx)}>Remove</button>
                   </div>
                 </div>
               </td>
