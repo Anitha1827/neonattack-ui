@@ -92,14 +92,14 @@ const AddToCart = () => {
               <td class="px-4 py-2 text-left">
                 <div className="flex flex-row p-3">
                   <div className="relative w-[200px]">
-                    <img
-                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3JtNDI0LTA1Ym0tbW9ja3VwLmpwZw.jpg"
+                    <Image
+                      src={img}
                       alt="product"
-                      // layout="full"
-                      // objectFit="cover"
-                      className="rounded w-[100%] h-[100%] bg-cover"
-                      // width={100}
-                      // height={100}
+                      layout="full"
+                      objectFit="cover"
+                      className="rounded w-[100%]"
+                      width={"100%"}
+                      height={100}
                     />
                     <p className="absolute inset-0 flex items-center justify-center text-white font-bold bg-black bg-opacity-50">
                     <div
