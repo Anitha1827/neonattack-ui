@@ -32,7 +32,6 @@ const AddToCart = () => {
       typeof localStorage !== "undefined" && localStorage.getItem("cart")
     );
     setData(cart);
-    console.log("line6", cart);
   }, []);
 
   const handlecontinue = () => {
@@ -159,10 +158,10 @@ const AddToCart = () => {
         </table>
         <div className="flex flex-row flex-wrap justify-end">
         <h1 className="text-right font-bold p-3">
-          Total Quantity <span>₹ {totalquantity}</span>
+          Total Quantity <span> {totalquantity}</span>
         </h1>
         <h1 className="text-right font-bold p-3">
-          Subtoal <span>₹ {totalprice}</span>
+          Subtotal <span>₹ {totalprice}</span>
         </h1>
         </div>
         {/* <div class="flex justify-end px-4 py-2">
